@@ -152,11 +152,16 @@ public class Runigram {
 	 * values in the two input color.
 	 */
 	public static Color blend(Color c1, Color c2, double alpha) {
-		int red = (int) (alpha * c1.getRed()) + (int) ((1 - alpha) * c2.getRed());
-		int green = (int) (alpha * c1.getGreen()) + (int) ((1 - alpha) * c2.getGreen());
-		int blue = (int) (alpha * c1.getBlue()) + (int) ((1 - alpha) * c2.getBlue());
+		double r1 = c1.getRed();
+		double g1 = c1.getGreen();
+		double b1 = c1.getBlue();
+		double r2 = c2.getRed();
+		double g2 = c2.getGreen();
+		double b2 = c2.getBlue();
+		int red = (int) (alpha * r1 + (1 - alpha) * r2);
+		int green = (int) (alpha * g1 + (1 - alpha) * g2);
+		int blue = (int) (alpha * b1 + (1 - alpha) * b2);
 		Color blendedColor = new Color(red, green, blue);
-		
 		return blendedColor;
 	}
 	
